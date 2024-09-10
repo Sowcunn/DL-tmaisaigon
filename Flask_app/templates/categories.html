@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+</head>
+<body>
+    <h1>Categories</h1>
+    <ul>
+        {% for category in categories %}
+        <li>{{ category }}</li>
+        <ul>
+            {% for image in images[category.replace(" ", "_")] %}
+                <div><img src="{{ url_for('static', filename='img/{}/{}'.format(category.replace(" ", "_"), image)) }}"></div>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+</body>
+</html>
